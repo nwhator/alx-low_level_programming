@@ -19,10 +19,9 @@ int main(void)
 			putchar(' ');
 			putchar((j / 10) + '0'); /* print first digit of j */
 			putchar((j % 10) + '0'); /*  print second digit of j */
-			putchar(',');
-
-			if (j < 99) /*(i < 99 || j < 99) check if it's the last combination */
+			if (i != 99 || j != 99) /* check if it's the last combination */
 			{
+				putchar(',');
 				putchar(' ');
 			}
 		}
