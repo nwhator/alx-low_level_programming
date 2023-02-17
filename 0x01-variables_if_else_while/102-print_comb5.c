@@ -22,12 +22,12 @@ int main(void)
 
 			if (i < 99 || j < 99) /* check if it's the last combination */
 			{
-				break;
+				putchar(',');
+				putchar(' ');
 			}
 			else
 			{
-				putchar(',');
-				putchar(' ');
+				break;
 			}
 		}
 	}
