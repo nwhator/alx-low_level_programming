@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <main.h>
 
 /**
  * main - Entry Point
@@ -13,7 +13,7 @@ int main(void)
 
 	while (c[i] != '\0')
 	{
-		putchar(c[i]);
+		_putchar(c[i]);
 		i++;
 	}
 
