@@ -21,11 +21,15 @@ void times_table(void)
 			}
 			else if (ans < 0)
 			{
+				_putchar(',');
+				_putchar(' ');
 				_putchar(' ');
 				_putchar(ans + '0');
 			}
 			else
 			{
+				_putchar(',');
+				_putchar(' ');
 				_putchar(ans / 10 + '0');
 				_putchar(ans % 10 + '0');
 			}
