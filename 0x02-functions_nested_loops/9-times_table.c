@@ -17,29 +17,26 @@ void times_table(void)
 			ans = i * j;
 			tens = ans / 10;
 			unit = ans % 10;
-			if (ans < 0)
+			
+			if (j == 0)
 			{
-				if (j > 0)
-				{
-					_putchar(' ');
-				}
 				_putchar('0');
-
 			}
-			else
-			{
-				_putchar(tens + '0');
-				_putchar(unit + '0');
-			}
-			if (j < 9)
+			else if (ans < 10)
 			{
 				_putchar(',');
 				_putchar(' ');
+				_putchar(' ');
+				_putchar(unit + '0');
 			}
 			else
 			{
-				_putchar('\n');
+				_putchar(',');
+				_putchar(' ');
+				_putchar(tens + '0');
+				_putchar(unit + '0');
 			}
 		}
+		_putchar('\n');
 	}
 }
