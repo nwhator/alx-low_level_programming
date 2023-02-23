@@ -28,6 +28,10 @@ int main(void)
 		{
 			printf("%d ", i);
 		}
+		if (i != 100)
+		{
+			putchar(32);
+		}
 	}
 	print("\n");
 	return (0);
