@@ -14,6 +14,7 @@
 
 int main(void)
 {
+	int i;
 	char password[PASSWORD_LENGTH + 1];
 	const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	const size_t charset_length = sizeof(charset) - 1;
@@ -21,7 +22,7 @@ int main(void)
 	srand(time(NULL));  /* Seed the random number generator with the current time */
 	
 	/* Generate a random password */
-	for (int i = 0; i < PASSWORD_LENGTH; i++)
+	for (i = 0; i < PASSWORD_LENGTH; i++)
 	{
 		password[i] = charset[rand() % charset_length];
 	}
