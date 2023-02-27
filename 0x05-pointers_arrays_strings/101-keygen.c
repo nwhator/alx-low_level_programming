@@ -4,6 +4,7 @@
 
 #define PASSWORD_LENGTH 11
 
+
 /**
  *
  * main - Entry point
@@ -24,7 +25,7 @@ int main(void)
 	{
 		password[i] = charset[rand() % charset_length];
 	}
-	password[PASSWORD_LENGTH] = '\0';  // Null-terminate the password
+	password[PASSWORD_LENGTH] = '\0';
 	printf("Random password: %s\n", password);
 	return (0);
 }
