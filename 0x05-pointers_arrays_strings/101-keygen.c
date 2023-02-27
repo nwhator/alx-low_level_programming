@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LENGTH 11
+#define PASSWORD_LENGTH 15
 
 
 /**
