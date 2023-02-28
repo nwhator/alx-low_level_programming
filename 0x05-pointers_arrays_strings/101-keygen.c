@@ -11,16 +11,16 @@
 
 int main(void)
 {
-	int sum;
+	int total;
 	char c;
 
 	srand(time(NULL));
-	while (sum <= 2645)
+	while (total <= 2645)
 	{
 		c = rand() % 128;
-		sum += c;
+		total += c;
 		putchar(c);
 	}
-	putchar(2772 - sum);
+	putchar(2772 - total);
 	return (0);
 }
