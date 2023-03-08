@@ -1,7 +1,5 @@
 #include "main.h"
 
-int_sqrt(int n);
-
 /**
  * _sqrt - Entry point
  * Description: Natural square root
