@@ -9,36 +9,29 @@
 
 int _sqrt_recursion(int n)
 {
-	int low, i;
-
 	if (n < 0)
 	{
 		return (-1);
 	}
-	if (n == 0 || n == 1)
+	else if (n == 0 || n == 1)
 	{
 		return (n);
 	}
-
-	low = 0;
-	i = n;
-
-	while (low <= i)
+	else
 	{
-		int root = (low + i) / 2;
+		int x = _sqrt_recursion(n - 1) + 1;
 
-		if (root * root == n)
+		if (x * x > n)
 		{
-			return (root);
+			return (x - 1);
 		}
-		else if (root * root < n)
+		else if (x * x == n)
 		{
-			low = root + 1;
+			return (x);
 		}
 		else
 		{
-			i = root - 1;
+			return _sqrt_recursion(n - 1) + 1;
 		}
 	}
-	return (-1);
 }
