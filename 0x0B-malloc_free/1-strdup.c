@@ -24,7 +24,7 @@ char *_strdup(char *str)
 		len++;
 		/* This determines the length of the input string */
 	}
-	for (i = 0; i <= len; i++)
+	for (i = 0; i < len; i++)
 	{
 		copy[i] = str[i];
 		/* This copies input string to the new string */
