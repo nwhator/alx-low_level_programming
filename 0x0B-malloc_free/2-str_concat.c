@@ -21,8 +21,7 @@ char *str_concat(char *s1, char *s2)
 	if (s2 == NULL)
 	{
 		s1 = "";
-	}
-	/* Treat string as empty if its NULL */
+	} /* Treat string as empty if its NULL */
 	while (s1[len1] != '\0')
 	{
 		len1++;
@@ -30,26 +29,22 @@ char *str_concat(char *s1, char *s2)
 	while (s2[len2] != '\0')
 	{
 		len2++;
-	}
-	/* Gets the length of each string */
+	} /* Gets the length of each string */
 
 	ans = malloc((len1 + len2 + 1) * sizeof(char));
 	/* Allocates memory for the ans string */
 	if (ans == NULL)
 	{
-		return (NULL);
-		/* Allocation failed */
+		return (NULL); /* Allocation failed */
 	}
 	for (i = 0; i < len1; i++)
 	{
 		ans[i] = s1[i];
-	}
-	/* Copies contents of s1 to the ans string */
+	} /* Copies contents of s1 to the ans string */
 	for (i = 0; i < len2; i++)
 	{
-		ans [len1 + i] = s2[i];
-	}
-	/* Copies contents of s2 to the ans string */
+		ans[len1 + i] = s2[i];
+	} /* Copies contents of s2 to the ans string */
 	ans[len1 + len2] = '\0';
 	/* Terminates ans string with null */
 	return (ans);
