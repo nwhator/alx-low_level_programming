@@ -13,9 +13,7 @@ char *_strdup(char *str)
 	int len = 0, i;
 	char *copy;
 
-	copy = malloc((len + 1) * sizeof(char));
-	/* This allocates memory for the new string */
-	if (str == NULL || copy == NULL)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
@@ -23,6 +21,13 @@ char *_strdup(char *str)
 	{
 		len++;
 		/* This determines the length of the input string */
+	}
+
+	copy = malloc((len + 1) * sizeof(char));
+	/* This allocates memory for the new string */
+	if (copy == NULL)
+	{
+		return (NULL);
 	}
 	for (i = 0; i < len; i++)
 	{
