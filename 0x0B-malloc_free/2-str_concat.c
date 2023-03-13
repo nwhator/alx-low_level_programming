@@ -48,4 +48,5 @@ char *str_concat(char *s1, char *s2)
 	ans[len1 + len2] = '\0';
 	/* Terminates ans string with null */
 	return (ans);
+	free(ans);
 }
