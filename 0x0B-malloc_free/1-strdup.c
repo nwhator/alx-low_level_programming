@@ -29,7 +29,7 @@ char *_strdup(char *str)
 		copy[i] = str[i];
 		/* This copies input string to the new string */
 	}
-	copy[len] = ('\0');
+	copy[len] = '\0';
 	return (copy);
 }
 
