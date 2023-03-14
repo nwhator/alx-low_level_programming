@@ -18,6 +18,7 @@ int word_len(char *str)
 
 	while (*(str + index) && *(str + index) != ' ')
 	{
+		/* iterate until end of string or a space is found */
 		len++;
 		index++;
 	}
@@ -63,12 +64,17 @@ char **strtow(char *str)
 	int index = 0, words, w, letters, l;
 
 	if (str == NULL || str[0] == '\0')
+	{
+		/* check for invalid input */
 		return (NULL);
-
+	}
+	/* get the number of words in the string */
 	words = count_words(str);
 	if (words == 0)
+	{
 		return (NULL);
-
+	}
+	/* allocate memory for the array of words */
 	strings = malloc(sizeof(char *) * (words + 1));
 	if (strings == NULL)
 		return (NULL);
