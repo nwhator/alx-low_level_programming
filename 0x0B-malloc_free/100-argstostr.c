@@ -19,6 +19,7 @@ char *argstostr(int ac, char **av)
 	{
 		return (NULL);
 	}
+	/* Calculate the total length of the concatenated string */
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j]; j++)
@@ -29,10 +30,12 @@ char *argstostr(int ac, char **av)
 	}
 	len++; /* add space for null terminator */
 	str = malloc(len * sizeof(char));
+	/* Allocate memory for the concatenated string */
 	if (str == NULL)
 	{
 		return (NULL);
 	}
+	/* Concatenate the strings */
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j]; j++)
