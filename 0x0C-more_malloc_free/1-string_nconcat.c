@@ -9,7 +9,7 @@
  * @s1: Character
  * @s2: Character
  * @n: Integer
- * Return: 
+ * Return: result
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
