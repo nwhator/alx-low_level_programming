@@ -37,5 +37,5 @@ This directory contains projects that introduce static libraries in the C progra
 ### [0x0A-argc_argv](https://github.com/nwhator/alx-low_level_programming/tree/master/0x0A-argc_argv)
 This directory contains projects that introduce the use of command-line arguments in the C programming language. The projects include writing a program that prints the number of arguments passed into it and writing a program that prints all arguments it receives.
 
-### 0x0B-malloc_free
+### [0x0B-malloc_free](https://github.com/nwhator/alx-low_level_programming/tree/master/0x0B-malloc_free)
 This directory contains projects that introduce dynamic memory allocation in the C programming language. The projects include writing a function that creates an array of integers, writing a function that concatenates two strings using malloc, and writing a program that frees malloc memory.
