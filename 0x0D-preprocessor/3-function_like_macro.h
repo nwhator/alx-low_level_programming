@@ -1,5 +1,5 @@
-#ifdef FUNCTION_LIFE_MARCO_H
-#define FUNCTION_LIFE_MARCO_H
+#ifdef FUNCTION_LIKE_MARCO_H
+#define FUNCTION_LIKE_MARCO_H
 
 #define ABS(x) ((x) < 0 ? (-x) : (x))
 
