@@ -17,5 +17,4 @@ void print_name(char *name, void (*f)(char *))
 	}
 	f(name);
 	/* Call the function pointer f with the argument name */
-	
 }
