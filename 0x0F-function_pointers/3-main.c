@@ -12,7 +12,7 @@
 int main(int argc, char *argv[])
 {
 	int num1, num2, result;
-	int (*op_func)(int, int);
+	char *op_func;
 
 	/* Check if the number of arguments is correct */
 	if (argc != 4)
@@ -25,10 +25,10 @@ int main(int argc, char *argv[])
 	num2 = atoi(argv[3]);
 
 	/* Get function for operator */
-	op_func = get_op_func(argv[2]);
+	op_func = argv[2];
 
 	/* Check if operator is invalid */
-	if (op_func == NULL)
+	if (get_op_func(op_func) == NULL || op_func[1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* Call function with num1 and num2 */
-	result = op_func(num1, num2);
+	result = get_op_func(op_func)(num1, num2);
 
 	printf("%d\n", result);
 	return (0);

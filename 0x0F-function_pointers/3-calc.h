@@ -3,10 +3,14 @@
 
 #include <stdlib.h>
 
+/*
+ * Desc: Header file containing all structures and
+ *       prototypes used by the 3-main.c program.
+ */
+
 /**
  * struct op - Entry point
  * Description: Struct op
- *
  * @op: The operator
  * @f: The function associated
  */
