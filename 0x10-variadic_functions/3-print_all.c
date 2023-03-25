@@ -41,12 +41,9 @@ void print_all(const char * const format, ...)
 			default:
 				i++;
 				continue;
-		}
-		/* if there is another format specifier */
+		} /* if there is another format specifier */
 		if (format[i + 1])
-		{
 			printf(", ");
-		}
 		i++;
 	}
 	printf("\n");
