@@ -11,7 +11,6 @@
 list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *new, *current;
-	int len;
 
 	if (!head)
 		return (NULL);
@@ -25,10 +24,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		free(new);
 		return (NULL);
 	}
-	/** Count the number of characters within square brackets
-	len = 0;
-	while (str[len])
-		len++; */
+	/* Count the number of characters within square brackets */
 	new->len = strlen(str);
 	new->next = NULL;
 	/* If the list is empty, the new node becomes the head */
@@ -36,4 +32,14 @@ list_t *add_node_end(list_t **head, const char *str)
 	{
 		*head = new;
 		return (new);
-	
+	}
+	current = *head;
+	/* Traverse the list until the last node is reached */
+	while (current->next)
+	{
+		current = current->next;
+	}
+	/* Add the new node to the end of the list */
+	current->next = new;
+	return (new);
+}
