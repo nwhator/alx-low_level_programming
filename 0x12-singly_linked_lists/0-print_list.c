@@ -12,7 +12,7 @@ size_t print_list(const list_t *h)
 	/* Keeps track of number of nodes in the list */
 	size_t count_nodes = 0;
 
-	while (h != NULL)
+	while (h)
 	{
 		/* If node's string is NULL, print [0] (nil) */
 		if (h->str == NULL)
