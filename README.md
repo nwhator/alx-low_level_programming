@@ -26,3 +26,4 @@ This repository contains directories for each topic covered in my ALX Low Level 
 ### [0x10-variadic_functions](https://github.com/nwhator/alx-low_level_programming/tree/master/0x10-variadic_functions): Variadic functions and how to use them.
 ### [0x11-printf](https://github.com/itsjustdice/printf): Custom implementation of the printf function.
 ### [0x12-singly_linked_lists](https://github.com/nwhator/alx-low_level_programming/tree/master/0x12-singly_linked_lists): Singly linked lists and how to use them.
+### [0x13-singly_linked_lists]: More on singly linked lists and how to use them.
