@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * print_listint - Entry poin
+ * print_listint - Entry point
  * Description: Prints all the elements of a listint_t list.
  * @h: Pointer to the first node in the list
  *
