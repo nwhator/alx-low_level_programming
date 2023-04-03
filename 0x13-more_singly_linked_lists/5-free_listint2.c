@@ -8,7 +8,6 @@
 
 void free_listint2(listint_t **head)
 {
-	listint_t *current;
 	listint_t *new;
 
 	/* Checks if head is NULL or empty */
@@ -16,16 +15,13 @@ void free_listint2(listint_t **head)
 	{
 		return;
 	}
-	/* Sets current to head */
-	current  = *head;
-
-	while (current)
+	while (*head)
 	{
 		/* Sets new to next node */
-		new = current->next;
-		free(current);
+		new = (*head)->next;
+		free(*head);
 		/* Moves to new node */
-		current = new;
+		*head = new;
 	}
-	current = NULL;
+	head = NULL;
 }
