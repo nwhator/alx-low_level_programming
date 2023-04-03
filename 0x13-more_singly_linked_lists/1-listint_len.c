@@ -1,9 +1,9 @@
 #include "lists.h"
 
 /**
- * add_nodeint - Entry point
+ * listint_len - Entry point
  * Description: Returns the number of elements in a linked listint_t list.
- * @head: Points to the head node of the list
+ * @h: Points to the head node of the list
  *
  * Return: Number of nodes in list
  */
