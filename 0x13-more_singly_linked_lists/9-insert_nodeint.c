@@ -16,11 +16,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/* Where new is the new node, current as it is, i is a node */
 	unsigned int i;
 
-	/* Checks if head is empty */
-	if (!head)
-	{
-		return (NULL);
-	}
 	/* Allocates memory to new node */
 	new = malloc(sizeof(listint_t));
 	/* Checks if new node is empty and sets its data */
