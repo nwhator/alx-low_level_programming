@@ -17,10 +17,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/* Where new is the new node, current as it is, i is a node */
 	unsigned int i;
 
-	if (!head)
-	{
-		return (NULL);
-	}
 	/* Allocates memory to new node */
 	new = malloc(sizeof(listint_t));
 	/* Checks if new node is empty and sets its data */
@@ -39,6 +35,11 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/* Locate node before location for new node, then insert new node  */
 	for (i = 0; i < (idx - 1); i++)
 	{
+		/* Checks if current node and next node is null before inserting */
+		if (current == NULL || current->next == NULL)
+		{
+			return (NULL);
+		}
 		current  = current->next;
 	}
 	/* Insert new node between current and new node */
