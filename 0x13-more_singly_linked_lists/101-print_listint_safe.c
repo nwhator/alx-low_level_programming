@@ -13,6 +13,10 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *current;
 	size_t counter = 0;
 
+	if (!head || !head->next)
+	{
+		return (0);
+	}
 	/* Traverse the linke list */
 	while (head)
 	{
