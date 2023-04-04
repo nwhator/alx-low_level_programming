@@ -6,6 +6,7 @@
  * contains functions and prototypes used
  */
 
+#include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
 
