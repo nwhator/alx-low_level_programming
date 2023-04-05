@@ -23,21 +23,21 @@ listint_t *find_listint_loop(listint_t *head)
 	 * Until start and end pointers meet,
 	 * Or reaches end
 	 */
-	while (start != NULL && end != NULL && end->next != NULL)
+	while (end != NULL && end->next != NULL)
 	{
 		start = start->next;
 		end = end->next->next;
 		if (start == end)
 		{
 			/* If equal there's a loop */
-			start = end;
+			start = head;
 			while (start != end)
 			{
 				/* If not equal, keep check next pointer until they meet */
 				start = start->next;
 				end = end->next;
 			}
-			return (end);
+			return (start);
 		}
 	}
 	/* Returns NULL if no loop */
