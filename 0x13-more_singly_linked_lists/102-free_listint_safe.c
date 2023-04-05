@@ -25,14 +25,18 @@ size_t free_listint_safe(listint_t **h)
 		node = current;
 		/* Move to the next node */
 		current = current->next;
-		free(node);
-		counter++;
-		/* if next pointer points back to a previous node, break the loop */
-		if (node <= current)
+		if (current <= current->next)
 		{
 			*h = NULL;
+			counter++;
 			break;
 		}
+		/* Set node pointer to current's next node */
+		node = current->next;
+		current->next = NULL;
+		free(current);
+		current = node;
+		counter++;
 	}
 	*h = NULL;
 	return (counter);
