@@ -18,13 +18,11 @@ size_t print_listint_safe(const listint_t *head)
 		return (0);
 	}
 	/* Traverse the linke list */
-	while (head)
+	current = head;
+	while (current)
 	{
-		/* Set current to head & move head to the next node */
-		current = head;
-		head = head->next;
 		/* Print current node */
-		printf("[%p] %d\n", (void *) current, current->n);
+		printf("[%p] %d\n", (void *)current, current->n);
 		counter++;
 		/* Break loop if next pointer points to previous node */
 		if (current > current->next)
