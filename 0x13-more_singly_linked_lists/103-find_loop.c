@@ -10,15 +10,14 @@
 
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *start, *end;
+	listint_t *start = head;
+	listint_t *end = head;
 
 	/* Check if list is NULL, or just an element */
-	if (!head || !head->next)
+	if (head == NULL || head->next == NULL)
 	{
 		return (NULL);
 	}
-	start = head;
-	end = head;
 	/*
 	 * Traverse the list with start and end pointers,
 	 * Until start and end pointers meet,
