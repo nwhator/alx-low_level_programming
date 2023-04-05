@@ -10,29 +10,29 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *current, *node;
+	listint_t *current = *h, *node;
 	size_t counter = 0;
 
 	/* Checks if heead node is NULL */
-	if (!h)
+	if (!h || !*h)
 	{
 		return (0);
 	}
 	/* Traverse through the list */
-	current = *h;
 	while (current)
 	{
-		/* Set node pointer to current's next node */
-		node = current->next;
-		free(current);
-		counter++;
-		/* If code pinter points to its previos node, break */
-		if (node <= current)
+		if (current <= current->next)
 		{
+			*h = NULL;
+			counter++;
 			break;
 		}
-		/* Moves current to thnext node (node) */
+		/* Set node pointer to current's next node */
+		node = current->next;
+		current->next = NULL;
+		free(current);
 		current = node;
+		counter++;
 	}
 	*h = NULL;
 	return (counter);
