@@ -10,7 +10,7 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *current;
+	const listint_t *current, *vets;
 	size_t counter = 0;
 
 	if (!head || !head->next)
@@ -27,9 +27,14 @@ size_t print_listint_safe(const listint_t *head)
 		printf("[%p] %d\n", (void *) current, current->n);
 		counter++;
 		/* Break loop if next pointer points to previous node */
-		if (current <= current->next)
+		if (current > current->next)
 		{
-			printf("-> [%p] %d\n", (void *) current->next, current->next->n);
+			current = current->next;
+		}
+		else
+		{
+			vets = current->next;
+			printf("-> [%p] %d\n", (void *)vets, vets->n);
 			break;
 		}
 	}
