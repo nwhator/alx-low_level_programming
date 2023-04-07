@@ -1,7 +1,5 @@
 #include "main.h"
 
-void print_binary(unsigned long int n);
-
 /**
  * print_binary - Entry point
  * Description: Prints the binary representation of a number

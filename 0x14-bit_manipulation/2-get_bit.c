@@ -16,7 +16,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	{
 		return (-1);
 	}
-	/** Right shift the number n by index bits of postions */
+	/* Right shift the number n by index bits of postions */
 	n >>= index;
 	/* Checks  if bit at the rightmost ends with 1, return 1 or 0, return 0 */
 	if (n & 1)
