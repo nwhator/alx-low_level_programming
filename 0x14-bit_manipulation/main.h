@@ -1,6 +1,8 @@
 #ifndef MY_MAIN_H
 #define MY_MAIN_H
 
+#include <stdlib.h>
+
 /*
  * Description: Header file containing prototypes to functions
  * in the 0x14-bit_manupulation directory.
