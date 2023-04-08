@@ -14,9 +14,9 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd; /* File descriptor */
 	char *buffer; /* Buffer to store text */
-	ssize_t my_read, my_write; /* Number of bytes read or written */
+	ssize_t fd, my_read, my_write;
+	/* File descriptor, number of bytes read or written */
 
 	/* Check if filename is NULL */
 	if (!filename)
@@ -34,7 +34,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1 || my_read == -1 || my_write != my_read)
 	{
 		free(buffer);
-		close (fd);
 		return (0);
 	}
 	/* Free the memory and close the file descriptor (fd) */
