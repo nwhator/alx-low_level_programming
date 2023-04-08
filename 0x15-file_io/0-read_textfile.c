@@ -1,6 +1,6 @@
 #include "main.h"
 
-/*
+/**
  * read_textfile - Entry point
  * Description: Reads a text file and prints it to the POSIX standard output
  * @filename: Name of the file to be read
