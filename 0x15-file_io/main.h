@@ -1,6 +1,9 @@
 #ifndef MY_MAIN_H
 #define MY_MAIN_H
 
+/* Define buffer size for task 3 */
+#define BUFFER_SIZE 1024
+
 /*
  * Description: Header file containing prototypes for all functions
  * for the 0x15-file_io project
@@ -10,6 +13,9 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 /* Prototypes */
 int _putchar(char c);
