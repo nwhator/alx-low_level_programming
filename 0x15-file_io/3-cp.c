@@ -9,7 +9,8 @@
 void error(char *msg, int code)
 {
 	/* Prints error message to standard error */
-	dprintf(STDERR_FILENO, "%s\n", msg);
+	dprintf(STDERR_FILENO, msg, code);
+	dprintf(STDERR_FILENO, "\n");
 	/* Exits with given error code */
 	exit(code);
 }
@@ -22,9 +23,8 @@ void error(char *msg, int code)
 
 void copy(char *file_from, char *file_to)
 {
-	ssize_t fd, my_write;
-	int fd_in, fd_out;
-	char *buffer;
+	ssize_t fd, fd_in, fd_out, my_write;
+	char buffer[BUFFER_SIZE];
 
 	/* Open input file to be read */
 	fd_in = open(file_from, O_RDONLY);
@@ -38,18 +38,12 @@ void copy(char *file_from, char *file_to)
 	{
 		error("Error: Can't write to %s", 99);
 	}
-	/* Memory allocated to buffer */
-	buffer = malloc(BUFFER_SIZE);
-	if (!buffer)
-	{
-		error("Error: Can't write to %s", 100);
-	}
 	/* Copy content from input to output file */
 	fd = read(fd_in, buffer, BUFFER_SIZE);
 	my_write = write(fd_out, buffer, fd);
 	while (fd > 0)
 	{
-		if (my_write < 0)
+		if (my_write < 0 || my_write != fd)
 		{
 			error("Error: Can't write to %s", 99);
 		}
@@ -58,7 +52,6 @@ void copy(char *file_from, char *file_to)
 	{
 		error("Error: Can't read from file %s", 98);
 	}
-	free(buffer);
 	if (close(fd_in) < 0)
 	{
 		error("Error: Can't close fd %d", 100);
