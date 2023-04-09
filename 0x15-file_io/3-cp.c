@@ -1,5 +1,8 @@
 #include "main.h"
 
+void error(char *msg, int code);
+void copy(char *file_from, char *file_to);
+
 /**
  * error - Prints an error mesage and exits with the given error code
  * @msg: Error message
