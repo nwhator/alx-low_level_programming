@@ -47,7 +47,8 @@ void close_file_descriptor(int fd)
 }
 
 /**
- * main - Copies content within file to another file
+ * main - Entry point
+ * Description: Copies content within file to another file
  * @argc: Number of arguments
  * @argv: Array of strings
  *
@@ -73,9 +74,7 @@ int main(int argc, char *argv[])
 	my_read = read(file_from, buffer, 1024);
 	/* Open destination file for writing -rw-r--r-, with those permissions */
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0644);
-
-	while (my_read > 0)
-	{
+	do {
 		/* Print error message if reading from source file fails */
 		if (file_from == -1 || my_read == -1)
 		{
@@ -94,7 +93,7 @@ int main(int argc, char *argv[])
 		}
 		my_read = read(file_from, buffer, 1024);
 		file_to = open(argv[2], O_WRONLY | O_APPEND);
-	}
+	} while (my_read > 0);
 	free(buffer);
 	close_file_descriptor(file_from);
 	close_file_descriptor(file_to);
