@@ -1,7 +1,7 @@
 #include "main.h"
 
 char *allocate_buffer(char *filename);
-void close_file_descriptor(int fd);
+void closer(int fd);
 
 /**
  * allocate_buffer - Entry point
@@ -28,11 +28,11 @@ char *allocate_buffer(char *filename)
 }
 
 /**
- * close_file_descriptor - Closes file
+ * closer - Closes file
  * @fd: File description file
  */
 
-void close_file_descriptor(int fd)
+void closer(int fd)
 {
 	int result;
 
@@ -100,8 +100,8 @@ int main(int argc, char *argv[])
 		file_to = open(argv[2], O_WRONLY | O_APPEND);
 	} while (my_read > 0);
 	free(buffer);
-	close_file_descriptor(file_from);
-	close_file_descriptor(file_to);
+	closer(file_from);
+	closer(file_to);
 	/* If successful, return 0 */
 	return (0);
 }
