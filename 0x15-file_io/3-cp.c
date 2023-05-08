@@ -24,7 +24,7 @@ char *allocate_buffer(char *filename)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
-	return( scrap);
+	return (scrap);
 }
 
 /**
