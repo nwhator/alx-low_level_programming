@@ -53,7 +53,6 @@ void close_file_descriptor(int fd)
  * @argv: Array of strings
  *
  * Return: 0, if successful
- * Description: variable outcomes
  * exit code 97 if arguement count is incorrect
  * exit code 98 if file_from cant be read or doesn't exist
  * exit code 99 if file_to cannot be written or created
