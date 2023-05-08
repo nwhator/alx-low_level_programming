@@ -13,18 +13,18 @@ void close_file_descriptor(int fd);
 
 char *allocate_buffer(char *filename)
 {
-	char *buffer;
+	char *scrap;
 
 	/* Allocate 1024 bytes of memory for buffer */
-	buffer = malloc(sizeof(char) * 1024);
+	scrap = malloc(sizeof(char) * 1024);
 
-	if (!buffer)
+	if (scrap == NULL)
 	{
 		/* Prints error mesage if buffer allocation failes */
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
-	return (buffer);
+	return( scrap);
 }
 
 /**
@@ -41,7 +41,7 @@ void close_file_descriptor(int fd)
 	if (result == -1)
 	{
 		/* Print error message if file descriptor closing fails */
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd%d\n", fd);
 		exit(100);
 	}
 }
@@ -53,6 +53,11 @@ void close_file_descriptor(int fd)
  * @argv: Array of strings
  *
  * Return: 0, if successful
+ * Description: variable outcomes
+ * exit code 97 if arguement count is incorrect
+ * exit code 98 if file_from cant be read or doesn't exist
+ * exit code 99 if file_to cannot be written or created
+ * exit code 100 if file_to or file_from cannot be closed
  */
 
 int main(int argc, char *argv[])
@@ -74,6 +79,7 @@ int main(int argc, char *argv[])
 	my_read = read(file_from, buffer, 1024);
 	/* Open destination file for writing -rw-r--r-, with those permissions */
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0644);
+
 	do {
 		/* Print error message if reading from source file fails */
 		if (file_from == -1 || my_read == -1)
