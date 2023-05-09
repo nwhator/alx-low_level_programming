@@ -6,6 +6,8 @@
  * for the 0x15-file_io project
  */
 
+#define BUFFER_SIZE 1024
+
 /* Libraries Used in the Project */
 #include <unistd.h>
 #include <fcntl.h>
