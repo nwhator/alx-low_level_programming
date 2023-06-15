@@ -4,9 +4,9 @@
 
 /**
  * f4 - finds the biggest number
- *
  * @usrn: username
  * @len: length of username
+ *
  * Return: the biggest number
  */
 int f4(char *usrn, int len)
@@ -17,14 +17,14 @@ int f4(char *usrn, int len)
 
 	ch = *usrn;
 	vch = 0;
-
+	/* Find the biggest ASCII value from the username */
 	while (vch < len)
 	{
 		if (ch < usrn[vch])
 			ch = usrn[vch];
 		vch += 1;
 	}
-
+	/* Generate a random number using the biggest ASCII value */
 	srand(ch ^ 14);
 	rand_num = rand();
 
@@ -32,11 +32,11 @@ int f4(char *usrn, int len)
 }
 
 /**
- * f5 - multiplies each char of username
- *
+ * f5 - Multiply each character's ASCII value in the username.
  * @usrn: username
  * @len: length of username
- * Return: multiplied char
+ *
+ * Return: Multiplied ASCII value.
  */
 int f5(char *usrn, int len)
 {
@@ -44,7 +44,7 @@ int f5(char *usrn, int len)
 	int vch;
 
 	ch = vch = 0;
-
+	/* Multiply each character's ASCII value in the username */
 	while (vch < len)
 	{
 		ch = ch + usrn[vch] * usrn[vch];
@@ -55,10 +55,10 @@ int f5(char *usrn, int len)
 }
 
 /**
- * f6 - generates a random char
+ * f6 - Generate a random character based on the username.
+ * @usrn: Username
  *
- * @usrn: username
- * Return: a random char
+ * Return: Random character
  */
 int f6(char *usrn)
 {
@@ -66,7 +66,7 @@ int f6(char *usrn)
 	int vch;
 
 	ch = vch = 0;
-
+	/* Generate a random character based on the username */
 	while (vch < *usrn)
 	{
 		ch = rand();
@@ -78,9 +78,9 @@ int f6(char *usrn)
 
 /**
  * main - Entry point
+ * @argc: Number of command-line arguments
+ * @argv: Array of command-line arguments
  *
- * @argc: arguments count
- * @argv: arguments vector
  * Return: Always 0
  */
 int main(int argc, char **argv)
@@ -93,11 +93,12 @@ int main(int argc, char **argv)
 		0x723161513346655a, 0x6b756f494b646850 };
 	(void) argc;
 
+	/* Calculate the length of the username */
 	for (len = 0; argv[1][len]; len++)
 		;
-	/* ----------- f1 ----------- */
+	/* f1: Calculate the first character of the key */
 	keygen[0] = ((char *)alph)[(len ^ 59) & 63];
-	/* ----------- f2 ----------- */
+	/* f2: Calculate the second character of the key */
 	ch = vch = 0;
 	while (vch < len)
 	{
@@ -105,7 +106,7 @@ int main(int argc, char **argv)
 		vch = vch + 1;
 	}
 	keygen[1] = ((char *)alph)[(ch ^ 79) & 63];
-	/* ----------- f3 ----------- */
+	/* f3: Calculate the third character of the key */
 	ch = 1;
 	vch = 0;
 	while (vch < len)
@@ -114,12 +115,13 @@ int main(int argc, char **argv)
 		vch = vch + 1;
 	}
 	keygen[2] = ((char *)alph)[(ch ^ 85) & 63];
-	/* ----------- f4 ----------- */
+	/* f4: Calculate the fourth character of the key */
 	keygen[3] = ((char *)alph)[f4(argv[1], len)];
-	/* ----------- f5 ----------- */
+	/* f5: Calculate the fifth character of the key*/
 	keygen[4] = ((char *)alph)[f5(argv[1], len)];
-	/* ----------- f6 ----------- */
+	/* f6: Calculate the sixth character of the key */
 	keygen[5] = ((char *)alph)[f6(argv[1])];
+	/* Null-terminate the keygen array */
 	keygen[6] = '\0';
 	for (ch = 0; keygen[ch]; ch++)
 		printf("%c", keygen[ch]);
