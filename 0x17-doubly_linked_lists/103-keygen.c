@@ -121,7 +121,6 @@ int main(int argc, char **argv)
 	keygen[4] = ((char *)alph)[f5(argv[1], len)];
 	/* f6: Calculate the sixth character of the key */
 	keygen[5] = ((char *)alph)[f6(argv[1])];
-	/* Null-terminate the keygen array */
 	keygen[6] = '\0';
 	for (ch = 0; keygen[ch]; ch++)
 		printf("%c", keygen[ch]);
