@@ -14,29 +14,41 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *new, *head = *h;
 	unsigned int i;
 
-	if (!h)
-		return (NULL);
-	/* Special case: insert at the beginning */
+	new = NULL;
 	if (idx == 0)
 		new = add_dnodeint(h, n);
-	/* Traverse to the node at index (idx - 1) */
-	for (i = 0; i < idx - 1 && head; i++)
-		head = head->next;
-	if (!head)
-		return (NULL);
-	/* Special case: insert at the end */
-	if (head->next == NULL)
-		new = add_dnodeint(h, n);
-	/* Create a new node and link it to the list */
-	new = malloc(sizeof(dlistint_t));
-	/* Checks if malloc failed */
-	if (!new)
-		return (NULL);
-	new->n = n;
-	new->next = head->next;
-	new->prev = head;
-	head->next->prev = new;
-	head->next = new;
-
+	else
+	{
+		i = 1;
+		if (head != NULL)
+			while (head->prev != NULL)
+				head = head->prev;
+		/* Traverse the list to find the insertion position */
+		while (head != NULL)
+		{
+			/* Insert the new node at the specified index */
+			if (i == idx)
+			{
+				/* Handle the case when the new node should be inserted at the end */
+				if (head->next == NULL)
+					new = add_dnodeint_end(h, n);
+				else
+				{
+					new = malloc(sizeof(dlistint_t));
+					if (new != NULL)
+					{
+						new->n = n;
+						new->next = head->next;
+						new->prev = head;
+						head->next->prev = new;
+						head->next = new;
+					}
+				}
+				break;
+			}
+			head = head->next;
+			i++;
+		}
+	}
 	return (new);
 }
